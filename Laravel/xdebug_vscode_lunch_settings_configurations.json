@@ -1,0 +1,25 @@
+{
+    "version": "0.2.0",
+    "compounds": [
+        {
+            "name": "Launch & Debug",
+            "configurations": [ "Launch Program", "Launch firefox" ]
+        }
+],
+"configurations": [
+        {
+            "name": "Launch Program",
+            "type": "php",
+            "request": "launch",
+            "cwd": "${workspaceRoot}",
+            "port": 9000
+        },
+        {
+            "name": "Launch firefox",
+            "type": "firefox",
+            "request": "launch",
+            "url": "http://127.0.0.1:8000",
+            "webRoot": "${workspaceRoot}"
+        }
+    ]
+}
