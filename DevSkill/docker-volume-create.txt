@@ -1,0 +1,1 @@
+docker volume create --driver local --opt type=none --opt device=E:\1.ClassRoom\2.Project\aspnetb6_team1\volume --opt o=bind eshortcartweb-data

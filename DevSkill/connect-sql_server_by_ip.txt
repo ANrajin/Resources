@@ -1,0 +1,13 @@
+Find your IP address by CMD: ipconfig/all
+
+
+192.168.1.2
+
+
+https://dba.stackexchange.com/questions/62165/i-cant-connect-to-my-servers-sql-database-via-an-ip-address
+
+https://www.howtogeek.com/723838/how-to-find-your-ip-address-on-a-windows-10-pc/
+
+https://docs.microsoft.com/en-us/answers/questions/503211/how-to-connect-remote-sql-server-database-through.html
+
+https://www.sqlshack.com/how-to-connect-to-a-remote-sql-server/
