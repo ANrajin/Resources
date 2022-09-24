@@ -25,6 +25,7 @@ http://nginx.org/en/download.html
 
 
 ### How to run php in nginx server (https://www.nginx.com/resources/wiki/start/topics/examples/phpfastcgionwindows/)
+https://dev.to/ilhamsabir/windows-10-nginx-php-2oef
 
 1. Open nginx.conf file located in nginx/conf folder
 2. Scroll down and edit the following - 
