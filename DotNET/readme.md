@@ -64,7 +64,13 @@ dotnet add package <NugetPackageName>
 "preLaunchTask": "watch"
 ```
 
-### 🚀To build a project or solution
+### 🚀 To build a project or solution
 ```
 dotnet build
+```
+
+
+### 🚀 To build a nuget package
+```
+dotnet pack
 ```
