@@ -68,3 +68,8 @@ dotnet add package <NugetPackageName>
 ```
 dotnet build
 ```
+
+### 🚀Update dotnet-tool
+```
+dotnet tool update --global dotnet-ef
+```
