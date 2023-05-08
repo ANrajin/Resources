@@ -32,3 +32,8 @@ docker image ls
 ```
 docker run <image name>
 ```
+## Remove docker image created by the compose file
+
+```
+docker-compose down --rmi all -v
+```
