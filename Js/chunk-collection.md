@@ -17,34 +17,30 @@ const chunk = (items, size) => {
 ```
 <br/>
 
-> ## Example
+>> Source
 ```
-source :
-
-{
-	"data": [
-		{
-			"name": "Debra P. Beggs",
-		},
-		{
-			"name": "Brian G. McCarthy",
-		},
-		{
-			"name": "Bette B. Peralta",
-		},
-		{
-			"name": "Jamey J. Fikes",
-		},
-		{
-			"name": "Benjamin P. Marini",
-		},
-	]
-}
+var items = 
+[
+    {
+        "name": "Debra P. Beggs",
+    },
+    {
+        "name": "Brian G. McCarthy",
+    },
+    {
+        "name": "Bette B. Peralta",
+    },
+    {
+        "name": "Jamey J. Fikes",
+    },
+    {
+        "name": "Benjamin P. Marini",
+    },
+];
 ```
 
+>> Output
 ```
-result: 
-
 [
     {
         "name": "Debra P. Beggs",
