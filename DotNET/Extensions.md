@@ -76,3 +76,75 @@ namespace DevSkill.Http.Attributes
     }
 }
 ```
+
+>> ## Validation Attribute Extension (Valid Salary Range)
+
+```
+using System.ComponentModel.DataAnnotations;
+
+namespace ValidSalaryRange.ValidationAttributes
+{
+    public class ValidSalaryRangeAttribute : ValidationAttribute
+    {
+        private readonly string _compareWith;
+        private readonly int _minimumRange;
+        private readonly int _maximumRange;
+        private readonly int _multiplyOfComparer;
+
+        public ValidSalaryRangeAttribute(string compareWith)
+        {
+            _compareWith = compareWith;
+        }
+
+        public ValidSalaryRangeAttribute(string compareWith, int multiplyOfComparer)
+        {
+            _compareWith=compareWith;
+            _multiplyOfComparer = multiplyOfComparer;
+        }
+
+        public ValidSalaryRangeAttribute(string compareWith, int minimumRange, int maximumRange)
+        {
+            _compareWith = compareWith;
+            _minimumRange = minimumRange;
+            _maximumRange = maximumRange;
+        }
+
+        public ValidSalaryRangeAttribute(string compareWith, int minimumRange, int maximumRange, int multiplyOfComparer)
+        {
+            _compareWith = compareWith;
+            _minimumRange = minimumRange;
+            _maximumRange = maximumRange;
+            _multiplyOfComparer = multiplyOfComparer;
+        }
+
+        #pragma warning disable CS8765
+        protected override ValidationResult IsValid(object value, ValidationContext validationContext)
+        #pragma warning restore CS8765 
+        {
+            if(value is null) return new ValidationResult(errorMessage: ErrorMessage ?? "Maximum salary cannot be null");
+
+            var minimumSalary = (validationContext.ObjectType.GetProperty(_compareWith)?
+                .GetValue(validationContext.ObjectInstance)) ?? 
+                throw new InvalidOperationException("Invalid property name provided!");
+
+            if(_minimumRange != 0 && (int) minimumSalary < _minimumRange)
+                return new ValidationResult(errorMessage: ErrorMessage ?? $"The minimum salary range is {_minimumRange}!");
+
+            if ((int)minimumSalary > (int)value)
+                return new ValidationResult("Maximum salary must be greater than or equal to minimum salary!");
+
+            if (_maximumRange > 0 && (int)value > _maximumRange)
+                return new ValidationResult($"Maximum salary must not exceed the range {_maximumRange}!");
+
+            if(_multiplyOfComparer > 0 && (int)value > ((int) minimumSalary * _multiplyOfComparer))
+            {
+                int validRange = ((int)minimumSalary * _multiplyOfComparer);
+                return new ValidationResult($"Maximum salary must not exceed the range {validRange}!");
+            }
+
+            return ValidationResult.Success!;
+        }
+    }
+}
+
+```
