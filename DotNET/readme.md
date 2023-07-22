@@ -77,3 +77,15 @@ dotnet pack
 ```
 dotnet tool update --global dotnet-ef
 ```
+### 🚀Initialise User Secret in project
+```
+dotnet user-secrets init -p [project name]
+```
+### 🚀Add User Secret in appsettings file
+```
+dotnet user-secrects set -p [project name] "MailSettings: Password" "this-is-secret-password"
+```
+### 🚀See list of User secret in project
+```
+dotnet user-secrets list -p [project name]
+```
